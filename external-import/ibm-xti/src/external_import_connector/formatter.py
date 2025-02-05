@@ -5,6 +5,7 @@ from typing import Any
 from cvss import CVSS3
 from markdown_it import MarkdownIt
 from pycti import OpenCTIConnectorHelper
+from .config_variables import ConfigConnector
 
 md = MarkdownIt(
     options_update={"options": {"html": True, "linkify": True, "typographer": True}}
@@ -14,8 +15,9 @@ md = MarkdownIt(
 class OpenCTISTIXFormatter:
     __helper: OpenCTIConnectorHelper
 
-    def __init__(self, helper: OpenCTIConnectorHelper):
+    def __init__(self, helper: OpenCTIConnectorHelper, config: ConfigConnector):
         self.__helper = helper
+        self.__config = config
 
     def format_report(self, obj: dict[str, Any], alias: str):
         if not obj.get("external_references"):
@@ -58,6 +60,7 @@ class OpenCTISTIXFormatter:
         obj["external_references"].append(
             {"source_name": "x_force_stix_id", "external_id": obj["id"]}
         )
+        obj["x_opencti_create_observables"] = self.__config.create_observables
 
     def __cvss_severity(self, score: float):
         if not score:
@@ -113,9 +116,9 @@ class OpenCTISTIXFormatter:
         obj["x_opencti_cvss_availability_impact"] = cvss_vector.get_value_description(
             "A"
         )
-        obj["x_opencti_cvss_confidentiality_impact"] = (
-            cvss_vector.get_value_description("C")
-        )
+        obj[
+            "x_opencti_cvss_confidentiality_impact"
+        ] = cvss_vector.get_value_description("C")
         obj["x_opencti_epss_score"] = None
         obj["x_opencti_epss_percentile"] = None
 

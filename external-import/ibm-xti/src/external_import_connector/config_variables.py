@@ -82,6 +82,15 @@ class ConfigConnector:
                 self.load,
             ),
         )
+        self.create_observables = cast(
+            Optional[bool],
+            get_config_variable(
+                "CONNECTOR_IBM_XTI_CREATE_OBSERVABLES",
+                ["connector_ibm_xti", "create_observables"],
+                self.load,
+                default=False,
+            ),
+        )
 
         self.debug = cast(
             Optional[str],

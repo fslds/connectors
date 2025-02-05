@@ -69,13 +69,13 @@ Below are the parameters you'll need to set for running the connector properly:
 
 Below are the parameters you'll need to set for the connector:
 
-| Parameter         | config.yml        | Docker environment variable | Default                    | Mandatory | Description                                                    |
-|-------------------|-------------------|-----------------------------|----------------------------|-----------|----------------------------------------------------------------|
-| TAXII Server URL  | taxii_server_url  | `TAXII_SERVER_URL`          |                            | Yes       | The base URL of the IBM X-Force PTI TAXII Server               |
-| TAXII User        | taxii_user        | `TAXII_USER`                |                            | Yes       | Your TAXII Server username                                     |
-| TAXII Password    | taxii_pass        | `TAXII_PASS`                |                            | Yes       | Your TAXII Server password                                     |
-| TAXII Collections | taxii_collections | `TAXII_COLLECTIONS`         | All authorized collections | No        | Optionally limit ingestion to specified TAXII collections only |
-
+| Parameter           | config.yml          | Docker environment variable            | Default                    | Mandatory | Description                                                    |
+|---------------------|---------------------|----------------------------------------|----------------------------|-----------|----------------------------------------------------------------|
+| TAXII Server URL    | taxii_server_url    | `TAXII_SERVER_URL`                     |                            | Yes       | The base URL of the IBM X-Force PTI TAXII Server               |
+| TAXII User          | taxii_user          | `TAXII_USER`                           |                            | Yes       | Your TAXII Server username                                     |
+| TAXII Password      | taxii_pass          | `TAXII_PASS`                           |                            | Yes       | Your TAXII Server password                                     |
+| TAXII Collections   | taxii_collections   | `TAXII_COLLECTIONS`                    | All authorized collections | No        | Optionally limit ingestion to specified TAXII collections only |
+| Create Observables  | create_observables  | `CONNECTOR_IBM_XTI_CREATE_OBSERVABLES` | False                      | No        | Instruct OpenCTI to create observables based on teh indicators |
 ## Deployment
 
 ### Docker Deployment

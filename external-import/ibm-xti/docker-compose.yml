@@ -27,8 +27,11 @@ services:
       - CONNECTOR_IBM_XTI_TAXII_USER=CHANGEME
       - CONNECTOR_IBM_XTI_TAXII_PASS=CHANGEME
       # - CONNECTOR_IBM_XTI_TAXII_COLLECTIONS="CHANGEME, CHANGEME"
+      # Create Observables from the Indicators
+      # - CONNECTOR_IBM_XTI_CREATE_OBSERVABLES=False
 
-      # Add proxy parameters below if needed
+
+        # Add proxy parameters below if needed
       # - HTTP_PROXY=CHANGEME
       # - HTTPS_PROXY=CHANGEME
       # - NO_PROXY=CHANGEME

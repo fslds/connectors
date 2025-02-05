@@ -21,7 +21,7 @@ class ConnectorClient:
         Initialize the client with necessary configurations
         """
         self.__helper = helper
-        self.__formatter = OpenCTISTIXFormatter(helper)
+        self.__formatter = OpenCTISTIXFormatter(helper, config)
 
         self.__taxii_server = Server(
             config.taxii_server_url, user=config.taxii_user, password=config.taxii_pass
