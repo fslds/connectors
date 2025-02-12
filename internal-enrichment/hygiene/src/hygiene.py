@@ -149,7 +149,7 @@ class HygieneConnector:
         self.hygiene_label_parent_name = str(
             get_config_variable(
                 "HYGIENE_LABEL_PARENT_NAME",
-                ["hygiene", "label_name"],
+                ["hygiene", "label_parent_name"],
                 config,
                 default="hygiene_parent",
             )
