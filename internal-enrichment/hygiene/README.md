@@ -1,7 +1,7 @@
 # OpenCTI Hygiene Connector
 
 This is an internal enrichment connector that uses the following external
-projects to look for oberservable values in the database that you might want to
+projects to look for observable values in the database that you might want to
 delete / decay because they are known to lead to false-positives when used for
 detection:
 
@@ -14,6 +14,8 @@ The connector works for the following OpenCTI observable types:
 * Domain-Name
 * StixFile
 * Artifact
+
+And works also for the Indicators based on these observables types.
 
 ## Installation
 
@@ -30,7 +32,6 @@ file of OpenCTI.
 | Parameter            	      | Docker envvar                      | Mandatory | Default Value    | Description                                                                                                                                                                 |
 |-----------------------------|------------------------------------| --------- |------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `warninglists_slow_search`  | `HYGIENE_WARNINGLISTS_SLOW_SEARCH` | No        | `false`          | Enable slow search mode for the warning lists. If true, uses the most appropriate search method. Can be slower. Default: exact match.                                       |
-| --------------------------  | ---------------------------------- | --------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enrich_subdomains`         | `HYGIENE_ENRICH_SUBDOMAINS`        | No        | `false`          | Enable enrichment of sub-domains, This option will add "hygiene_parent" label and ext refs of the parent domain to the subdomain, if sub-domain is not found but parent is. |
 | `hygiene_label_name`        | `HYGIENE_LABEL_NAME`               | No        | `hygiene`        | Label name to be used when labeling matches, by default "hygiene".                                                                                                          |
 | `hygiene_label_parent_name` | `HYGIENE_LABEL_PARENT_NAME`        | No        | `hygiene_parent` | Label name to be used when enriching sub-domains, by default "hygiene_parent".                                                                                              |
